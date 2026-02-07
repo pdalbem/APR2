@@ -71,7 +71,7 @@ Essas dificuldades, no entanto, tornam o aprendizado de C extremamente formativo
 
 
 ### Conteúdo:
-[1. Introdução à linguagem C]()
+[1. Introdução à linguagem C](https://github.com/pdalbem/APR2/tree/main/1.%20Introdu%C3%A7%C3%A3o)
 * Tipos de dados
 * Variáveis e constantes
 * Modificadores de tipo
