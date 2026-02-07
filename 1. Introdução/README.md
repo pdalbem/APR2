@@ -1,7 +1,48 @@
 
 # Introdução à Linguagem C
 
-## 1. Estrutura básica de um programa em C
+
+## Breve histórico da linguagem C
+
+
+A linguagem C surgiu nos Laboratórios Bell (Bell Labs) da AT&T entre 1969 e 1973, criada por **Dennis Ritchie**. Sua origem está diretamente ligada ao desenvolvimento do sistema operacional **UNIX**. Inicialmente, o Unix foi escrito em linguagem assembly, o que o tornava extremamente dependente do hardware específico para o qual foi criado. Para resolver essa limitação de portabilidade, Ken Thompson, colega de Ritchie, havia desenvolvido a linguagem B, uma versão simplificada da linguagem BCPL. Ritchie, então, partiu da linguagem B para criar uma nova que fosse mais poderosa e eficiente, capaz de reescrever o núcleo do Unix. Essa nova linguagem, que inicialmente apenas acrescentou tipos à B, recebeu o nome de C, representando a evolução natural no alfabeto.
+
+
+O legado da linguagem C é imensurável. Ela é a espinha dorsal de sistemas operacionais fundamentais como os kernels do Linux, macOS e do próprio Windows em suas partes essenciais, além de dominar o mundo dos sistemas embarcados e de tempo real. Filosoficamente, C foi concebida como uma "linguagem de montagem portável", dando ao programador controle próximo ao hardware sem abrir mão da capacidade de escrever código que pode ser recompilado para diferentes arquiteturas. Essa filosofia de minimalismo, poder e confiança no programador (que traz consigo a responsabilidade pelo gerenciamento manual de recursos como a memória) influenciou profundamente toda uma linhagem de linguagens modernas, incluindo C++, Java, C#, Go, Rust e JavaScript. Mesmo após mais de cinco décadas, C permanece como uma das linguagens de programação mais essenciais, eficientes e influentes da história da computação.
+
+
+## Características da linguagem C
+
+Algumas das principais características da linguagem C são:
+
+- Linguagem **procedural**
+- Forte proximidade com o hardware
+- Alto desempenho
+- Uso explícito de memória (ponteiros)
+- Código compacto e eficiente
+- Portabilidade entre sistemas
+- Compilada (gera código nativo)
+
+
+
+## Onde a linguagem C é usada atualmente
+
+A linguagem C continua extremamente relevante e é amplamente utilizada em diversas áreas:
+
+|Área de Aplicação	| Exemplos Concretos |	Por que C é a Escolha Ideal?|
+|:--- | :--- | :--- |
+|Sistemas Operacionais & Kernels	| Kernels do Linux, FreeBSD, macOS (XNU); núcleo do Windows NT; sistemas embarcados em tempo real (RTOS) como FreeRTOS e Zephyr. |	Oferece controle direto sobre a memória e hardware, performance próxima ao assembly e portabilidade para escrever o núcleo de um sistema.|
+|Sistemas Embarcados & IoT	| Firmware de microcontroladores (Arduino, ESP32, STM32), eletrônica automotiva, sistemas de aviônica, eletrodomésticos inteligentes, sensores industriais.	| Baixo consumo de memória (RAM/ROM), previsibilidade de execução (sem coletor de lixo), e acesso direto a registradores de hardware.|
+|Compiladores, Interpretadores & Ferramentas de Sistema	| Os próprios compiladores GCC e Clang/LLVM são escritos em C. Interpretadores para Python, PHP, Lua; shells como Bash; ferramentas GNU (coreutils). |	É a linguagem "canivete suíço" para construir as ferramentas que, por sua vez, constroem outros softwares. Requer confiança e portabilidade total.|
+|Bancos de Dados e Sistemas de Armazenamento |	Motores de armazenamento do MySQL, PostgreSQL; o banco de dados autônomo SQLite; sistemas de arquivos como ext4, NTFS, FAT32. |	Desempenho crítico para operações de I/O, necessidade de gerenciamento manual de memória para otimizar cache e buffers de disco. |
+| Gráficos, Jogos e Mídia |	Motores gráficos e de jogos (Unity, Unreal Engine - núcleo em C++), bibliotecas como OpenGL, processadores de áudio/vídeo (FFmpeg), renderizadores. |	Necessidade de processar grandes volumes de dados (pixels, vértices, amostras de áudio) com a máxima velocidade possível.|
+|Redes e Telecomunicações |	Pilhas de protocolo (TCP/IP), roteadores, switches, sistemas de telefonia, o kernel de rede do Linux, servidores web de alta performance (Nginx, Apache). |	Controle de baixo nível sobre pacotes de dados, latência mínima e operações de socket eficientes são cruciais.|
+|Computação de Alto Desempenho (HPC) & Científica	| Simulações numéricas, modelagem climática, física computacional, partes críticas de bibliotecas matemáticas (BLAS, LAPACK). |	A eficiência de execução é primordial para cálculos massivos. C permite otimizações específicas para cada arquitetura de processador.|
+|Dispositivos Médicos e Sistemas Críticos |	Ressonância magnética, monitores cardíacos, equipamentos de laboratório automatizado, software para controle de missões espaciais.	| Confiabilidade extrema e comportamento previsível e determinístico. Não pode haver surpresas de um coletor de lixo ou interpretador.|
+
+
+
+## Estrutura básica de um programa em C
 
 A seguir, é apresentado um programa básico em  C:
 
@@ -26,9 +67,9 @@ No exemplo, diretiva `#include <stdio.h>` está solicitando a inclusão da bibli
 
 2. Função main() - O Coração do Programa
 
-    Todo programa em C é organizado em funções. A principal e obrigatória é a `main()`. É o ponto de entrada do programa em C.
+    Todo programa em C é organizado em funções. A principal e obrigatória é a `main()`. É o ponto de entrada do programa em C. Todo programa em C começa a executar por ela.
 
-    Todo programa em C começa a executar pela função main.
+    No exemplo, temos uma chamada à função `printf()`, responsável por mostrar o texto `Olá, mundo!` na tela.
 
     O tipo de retorno int indica que a função retorna um valor inteiro para o sistema operacional, indicando se o programa foi finalizado com sucesso ou erro. É convenção que  o retorno 0 (zero) indica sucesso e qualquer coisa diferente disso indica erro.
 
@@ -41,20 +82,32 @@ No exemplo, diretiva `#include <stdio.h>` está solicitando a inclusão da bibli
     A linguagem é _case-sensitive_, ou seja,  diferencia letras maiúsculas de minúsculas. `Main` é diferente de `main`.
 
 
----
 
-## 2. Tipos de dados em C
+## Tipos de dados em C
 
-C é uma linguagem **fortemente tipada**, ou seja, toda variável possui um tipo bem definido.
+C é uma linguagem **fortemente tipada**, ou seja, toda variável possui um tipo bem definido. Vantagens da **tipagem forte**:
+
+- Detecção de erros em tempo de compilação
+- Código mais previsível e seguro
+- Melhor desempenho
+- Maior clareza e legibilidade
 
 ### Tipos primitivos mais comuns:
 
-- `int` → números inteiros
-- `float` → números reais (precisão simples)
-- `double` → números reais (precisão dupla)
-- `char` → caracteres
-- `void` → Representa a ausência de valor. É muito comum em funções que não devolvem nenhuma resposta ao usuário, apenas executam uma tarefa.
+### Tabela de Tipos Primitivos, Tamanhos e Intervalos
 
+| Tipo | Significado | Tamanho (Bytes) | Intervalo de Valores (Range) | 
+| :--- | :---: | :---: | :---: |
+| `char` | caracteres | 1 | -128 a 127 |
+| `int` | números inteiros | 4 | -2.147.483.648 a 2.147.483.647 |
+| `float` | números reais (precisão simples) | 4 | 1.2E-38 a 3.4E+38 (6 casas decimais) |
+| `double` | números reais (precisão dupla) | 8 | 2.3E-308 a 1.7E+308 (15 casas decimais) |
+| `void` | Representa a ausência de valor | - | Sem valor (uso em funções e ponteiros genéricos)  |
+
+
+
+
+> **Nota:** Os valores de memória e intervalo podem variar conforme a arquitetura (32 ou 64 bits), mas os valores acima representam o padrão mais comum utilizado pelos compiladores modernos como GCC e MSVC.
 
 Exemplo:
 
@@ -82,28 +135,18 @@ int main()
 } 
 ```
 
-
-
----
-
 Em C, o tipo de uma variável determina:
 
 - O espaço de memória ocupado
 - As operações permitidas
 - Como o valor será interpretado
 
-### Vantagens da tipagem forte:
-
-- Detecção de erros em tempo de compilação
-- Código mais previsível e seguro
-- Melhor desempenho
-- Maior clareza e legibilidade
-
----
 
 
 
-## 3. Variáveis em C
+
+
+## Variáveis em C
 Variável é uma região nomeada de memória usada para guardar algum dado, o qual
 pode ser alterado pelo programa durante sua execução.
 Toda variável em C deve ser declarada antes de ser utilizada. A forma geral de
@@ -249,7 +292,7 @@ int main() {
 ---
 
 
-## 4. _Casting_ (conversão de tipos)
+## _Casting_ (conversão de tipos)
 
 **Casting** é a conversão explícita de um tipo de dado para outro.
 
@@ -267,7 +310,7 @@ Casting deve ser usado com cuidado, pois conversões inadequadas podem gerar per
 
 ---
 
-## 5. Modificadores de tipo
+## Modificadores de tipo
 
 C permite modificar tipos básicos para alterar seu comportamento. Esses modificadores influenciam o intervalo de valores e o uso de memória
 
@@ -312,11 +355,11 @@ Assim como o `float`, o `double` segue o padrão IEEE 754 e, portanto, possui es
 
 
 
-## 6. Constantes em C
+## Constantes em C
 
 Uma constante é um valor que não deve ser alterado durante a execução do programa. Em C, é possível declarar constantes de 2 maneiras:
 
-**I. Constantes com `#define (macro)`**
+### Constantes com `#define (macro)`
 
 São definidas como diretivas do pré-processador. 
 O pré-processador atua antes do compilador, realizando substituições e inclusões de código, sem gerar código executável por si só.
@@ -330,7 +373,7 @@ Não tem tipo, muito rápida e pode ser usada em qualquer contexto.
 #define TAM 10
 ```
 
-**II. Constantes com `const`**
+### Constantes com `const`
 
 Variável tipada é criada em memória. Valor não pode ser alterado.
 
@@ -353,7 +396,7 @@ Evite números mágicos no código
 ---
 
 
-## 7. Operadores aritméticos
+## Operadores aritméticos
 
 
 Usados para cálculos matemáticos:
@@ -374,7 +417,7 @@ int resto = a % b;
 
 ---
 
-## 8. Operadores relacionais
+## Operadores relacionais
 
 Usados para comparar valores:
 
@@ -389,7 +432,7 @@ Resultado sempre será **verdadeiro (1)** ou **falso (0)**.
 
 ---
 
-## 9. Operadores lógicos
+## Operadores lógicos
 
 Usados para combinar expressões booleanas:
 
@@ -406,13 +449,13 @@ if (idade >= 18 && idade <= 65) {
 ```
 
 
-## 10. Entrada e saída de dados em C
+## Entrada e saída de dados em C
 
 A interação com o usuário em C é feita, principalmente, por meio das funções `printf` e `scanf`, ambas pertencentes à biblioteca `stdio.h`.
 
 ---
 
-### 10.1 Saída de dados com `printf`
+### Saída de dados com `printf`
 
 A função `printf` é utilizada para **exibir informações na tela**.
 
@@ -439,7 +482,7 @@ printf("Altura: %.2f metros", altura);
 
 ---
 
-### 10.2 Entrada de dados com `scanf`
+### Entrada de dados com `scanf`
 
 A função `scanf` é utilizada para **ler dados digitados pelo usuário**.
 
@@ -469,7 +512,7 @@ scanf("%f", &salario);
 - `%s` → string (cadeia de caracteres)
 ---
 
-### 10.3 Exemplo completo de entrada e saída
+### Exemplo completo de entrada e saída
 
 ```c
 #include <stdio.h>
