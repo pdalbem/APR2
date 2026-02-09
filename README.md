@@ -68,13 +68,13 @@ gcc programa.c -o programa
 * Operadores lógicos
 * Entrada e saída de dados
 
-[2. Estruturas de Decisão](https://github.com/pdalbem/APR2/tree/main/1.%20Introdu%C3%A7%C3%A3o)
+[2. Estruturas de Decisão](https://github.com/pdalbem/APR2/tree/main/2.%20Estruturas%20de%20Decis%C3%A3o)
 * `if`
 * `if-else`
 * `if-else-if`
 * `switch-case`
 
-[3. Estruturas de Repetição ](https://github.com/pdalbem/APR2/tree/main/1.%20Introdu%C3%A7%C3%A3o)
+[3. Estruturas de Repetição ](https://github.com/pdalbem/APR2/tree/main/3.%20Estruturas%20de%20Repeti%C3%A7%C3%A3o)
 * `while`
 * `do-while`
 * `for`
