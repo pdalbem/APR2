@@ -79,3 +79,4 @@ gcc programa.c -o programa
 * `while`
 * `do-while`
 * `for`
+* `break` e `continue`
