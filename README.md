@@ -73,6 +73,7 @@ gcc programa.c -o programa
 * `if-else`
 * `if-else-if`
 * `switch-case`
+* Operador ternário
 
 [3. Estruturas de Repetição ](https://github.com/pdalbem/APR2/tree/main/3.%20Estruturas%20de%20Repeti%C3%A7%C3%A3o)
 * `while`
