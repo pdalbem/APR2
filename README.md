@@ -12,11 +12,14 @@ Este guia tem como objetivo ajudar você a configurar seu computador para compil
 O compilador é essencial para transformar seu código-fonte em um programa executável.
 
 ### **Windows**
-A forma mais recomendada é através do **MSYS2**:
+A forma mais recomendada é através do **MSYS2**. 
+
+Veja o tutorial completo de instalação [aqui neste link](https://code.visualstudio.com/docs/cpp/config-mingw).
+
 1. Baixe e instale o [MSYS2](https://www.msys2.org/).
 2. Abra o terminal do MSYS2 e execute o comando:  
-   `pacman -S --needed base-devel mingw-w64-x86_64-toolchain`
-3. Adicione o caminho da pasta `bin` (geralmente `C:\msys64\mingw64\bin`) às **Variáveis de Ambiente (PATH)** do Windows para que o comando `gcc` funcione em qualquer terminal.
+   `pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain`
+3. Adicione o caminho da pasta `bin` (geralmente `C:\msys64\ucrt64\bin`) às **Variáveis de Ambiente (PATH)** do Windows para que o comando `gcc` funcione em qualquer terminal.
 
 ### **Linux**
 A maioria das distribuições já possui ou facilita muito a instalação:
@@ -32,7 +35,7 @@ Instale as ferramentas de linha de comando do Xcode:
 
 ### 2. Editor de Código Recomendado: VS Code
 
-Utilizaremos o **Visual Studio Code** pela sua versatilidade. Após instalá-lo, procure na aba de **Extensions (Ctrl+Shift+X)** por:
+Utilizaremos o **Visual Studio Code** pela sua versatilidade. Acesse o [site](https://code.visualstudio.com/) para efetuar o download. Após instalá-lo, abra-o e procure na aba de **Extensions (Ctrl+Shift+X)** por:
 
 **C/C++ Extension Pack (Microsoft):** Oferece realce de sintaxe, IntelliSense (autocompletar) e suporte a depuração.
 
