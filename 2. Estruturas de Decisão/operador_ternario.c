@@ -3,7 +3,7 @@
 int main()
 {
     float nota;
-    printf("Difite a nota do aluno: ");
+    printf("Digite a nota do aluno: ");
     scanf("%f", &nota);
 
     (nota>=6) ?  printf("Aprovado \n") : printf("Reprovado \n");  

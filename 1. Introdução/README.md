@@ -533,4 +533,61 @@ int main() {
     return 0;
 }
 ```
+
+## Biliotecas em C
+
+Em C, bibliotecas são conjuntos de funções, tipos e macros organizados em arquivos que podem ser reutilizados por diferentes programas. Elas evitam retrabalho e fornecem funcionalidades já prontas, como entrada/saída, manipulação de strings, matemática, alocação dinâmica, entre outras.
+
+Para usar uma biblioteca, utilizamos:
+
+```c
+#include <nome_da_biblioteca.h>
+```
+para usar bibliotecas padrão do sistema ou
+
+
+```c
+#include "minha_biblioteca.h"
+```
+
+para bibliotecas criadas pelo próprio programador.
+
+### Principais bibliotecas padrão da linguagem C
+
+1. `stdio.h` (Standard Input/Output)
+
+    É a mais essencial. Lida com a comunicação entre o programa e o usuário ou arquivos.
+
+    Funções chave: `printf()`, `scanf()`, `fgets()`, `fopen()`.
+
+    Uso: Exibir dados no console ou ler o que o usuário digita.
+
+2. `stdlib.h` (Standard Library)
+
+    Uma "caixa de ferramentas" para operações gerais do sistema.
+
+    Gestão de Memória: `malloc()`, `free()` (essenciais para alocação dinâmica).
+
+    Controle de Processo: `exit()`, `system()`.
+
+    Conversões e Sorteio: `atoi()` (texto para número), `rand()` (números aleatórios).
+
+   3. `string.h`
+
+    Como em C não existe um tipo "string" nativo (são apenas arrays de char), essa biblioteca é vital para manipular textos.
+
+    Funções chave: `strlen()` (tamanho da string), `strcpy()` (copiar),  `strcat()` (concatenar), `strcmp()` (comparar).
+
+4. `math.h`
+
+    Contém funções matemáticas comuns que vão além das operações aritméticas básicas.
+
+    Funções chave: `sqrt()` (raiz quadrada), `pow()` (potência), `sin()`, `cos()`, `log()`.
+
+5. `time.h`
+
+    Usada para obter e manipular o tempo e a data do sistema.
+
+    Funções chave: `time()`, `clock()`, `localtime()`. 
+
 ---

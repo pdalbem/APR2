@@ -8,7 +8,7 @@ int main()
     case 1:
         printf("Domingo\n");
         break;
-    case 2 ... 6: // intervalo de valores
+    case 2 ... 6: // intervalo de valores. NÃO É C padrão, é extensão do gcc 
         printf("Dia útil\n");
         break;
     case 7:
