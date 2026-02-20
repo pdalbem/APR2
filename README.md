@@ -2,12 +2,12 @@
 
 Material da disciplina Algoritmos e Programação 2 (APR2)
 
-## 🛠️ Guia de Configuração do Ambiente (C/C++)
+## 🛠️ Guia de Configuração do Ambiente 
 
 Este guia tem como objetivo ajudar você a configurar seu computador para compilar e executar os códigos da disciplina de **APR2**. Siga os passos abaixo de acordo com o seu sistema operacional.
 
 
-### 1. Instalação do Compilador (GCC/G++)
+### 1. Instalação do Compilador (GCC)
 
 O compilador é essencial para transformar seu código-fonte em um programa executável.
 
