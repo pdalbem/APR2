@@ -78,8 +78,14 @@ gcc programa.c -o programa
 * `switch-case`
 * Operador ternário
 
-[3. Estruturas de Repetição ](https://github.com/pdalbem/APR2/tree/main/3.%20Estruturas%20de%20Repeti%C3%A7%C3%A3o)
+[3. Estruturas de Repetição](https://github.com/pdalbem/APR2/tree/main/3.%20Estruturas%20de%20Repeti%C3%A7%C3%A3o)
 * `while`
 * `do-while`
 * `for`
 * `break` e `continue`
+
+[4. Vetores e Matrizes](https://github.com/pdalbem/APR2/tree/main/4.Vetores%20e%20Matrizes)
+*  Variável composta homogênea
+*  Vetores
+*  Matrizes
+*  Declaração, inicialização, acesso e percurso 
