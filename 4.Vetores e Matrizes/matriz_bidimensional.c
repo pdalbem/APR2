@@ -5,58 +5,72 @@ int main() {
     /* ==========================================
        DECLARAÇÃO (sem inicialização)
        ========================================== */
-    int v1[5];
+    int m1[2][3];
 
     /* ==========================================
        INICIALIZAÇÃO COMPLETA
        (todos os elementos informados)
        ========================================== */
-    int v2[5] = {1, 2, 3, 4, 5};
+    int m2[2][3] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
 
     /* ==========================================
        INICIALIZAÇÃO PARCIAL
        (restante recebe 0 automaticamente)
        ========================================== */
-    int v3[5] = {10, 20};
+    int m3[2][3] = {
+        {10, 20},
+        {30}
+    };
     /*
        Fica assim na memória:
-       {10, 20, 0, 0, 0}
+       {10, 20, 0}
+       {30,  0, 0}
     */
 
     /* ==========================================
-       INICIALIZAÇÃO COM TAMANHO INFERIDO
-       (compilador calcula automaticamente)
+       INICIALIZAÇÃO EM LINHA
+       (preenchimento sequencial)
        ========================================== */
-    int v4[] = {7, 8, 9, 10}; //Tamanho automaticamente definido como 4
- 
+    int m4[2][3] = {1, 2, 3, 4, 5, 6};
+    /*
+       Equivalente a:
+       {1, 2, 3}
+       {4, 5, 6}
+    */
 
     /* ==========================================
        LEITURA VIA TECLADO
        ========================================== */
-    int v5[5];
+    int m5[2][3];
 
-    printf("Digite 5 valores para o vetor v5:\n");
+    printf("Digite 6 valores para a matriz m5 (2x3):\n");
 
-    for(int i = 0; i < 5; i++) {
-        printf("v5[%d]: ", i);
-        scanf("%d", &v5[i]);
+    for(int i = 0; i < 2; i++) {
+        for(int j = 0; j < 3; j++) {
+            printf("m5[%d][%d]: ", i, j);
+            scanf("%d", &m5[i][j]);
+        }
     }
 
     /* ==========================================
        ACESSO A ELEMENTO
        ========================================== */
-    printf("\nElemento v2[3] = %d\n", v2[3]);
+    printf("\nElemento m2[1][2] = %d\n", m2[1][2]);
 
     /* ==========================================
-       PERCURSO DO VETOR
+       PERCURSO DA MATRIZ
        ========================================== */
-    printf("\nPercorrendo v5:\n");
+    printf("\nPercorrendo m5:\n");
 
-    for(int i = 0; i < 5; i++) {
-        printf("%d ", v5[i]);
+    for(int i = 0; i < 2; i++) {
+        for(int j = 0; j < 3; j++) {
+            printf("%d ", m5[i][j]);
+        }
+        printf("\n");
     }
-
-    printf("\n");
 
     return 0;
 }

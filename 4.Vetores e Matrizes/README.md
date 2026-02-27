@@ -4,7 +4,7 @@ Vetores e matrizes são estruturas de dados fundamentais em C que permitem armaz
 
 
 
-# Vetores (_Arrays_ Unidimensionais)
+## Vetores (_Arrays_ Unidimensionais)
 
 Os vetores em C são identificados pela existência de **\[ \]** logo após
 o nome da variável no momento da declaração. Dentro dos colchetes, é
@@ -16,7 +16,7 @@ tipo**, organizados em **posições indexadas**.
 Cada elemento é acessado por um índice, que sempre começa em **0**.
 
 
-## Declaração
+### Declaração
 
 Para criar um vetor em C, precisamos informar ao compilador três informações essenciais: o tipo de dados que será armazenado, o nome da variável e a quantidade de elementos que ela poderá conter. A declaração reserva um espaço contíguo na memória para armazenar todos os elementos do vetor.
 
@@ -34,7 +34,7 @@ int idade[5];
 Neste momento, o vetor foi apenas declarado e não inicializado. 
 Logo, o conteúdo inicial será qualquer valor que estivesse na memória antes (lixo).
 
-## Inicialização
+### Inicialização
 
 Após declarar um vetor, podemos atribuir valores iniciais aos seus elementos. A inicialização pode ser feita no momento da declaração, atribuindo valores entre chaves, ou posteriormente, elemento por elemento. É importante notar que, se não inicializarmos um vetor, ele conterá "lixo de memória" - valores aleatórios que estavam naquela posição de memória.
 
@@ -52,7 +52,7 @@ vetor[1] = 200;
 vetor[2] = 300;
 ```
 
-## Acesso aos elementos
+### Acesso aos elementos
 
 O acesso aos elementos de um vetor é feito através de um índice numérico, que indica a posição do elemento dentro da estrutura. É fundamental lembrar que em C os índices sempre começam em 0, ou seja, o primeiro elemento está na posição 0, o segundo na posição 1, e assim sucessivamente. Tentar acessar uma posição além do tamanho do vetor (índice maior ou igual ao tamanho) é um erro grave que pode causar comportamento indefinido no programa.
 
@@ -70,7 +70,7 @@ printf("Novo valor na posição 1: %d\n", vetor[1]);          // 25
 ```
 
 
-## Percurso em Vetor
+### Percurso em Vetor
 
 Percorrer um vetor significa acessar sequencialmente cada um de seus elementos, geralmente para realizar alguma operação como leitura, escrita, soma ou busca. A estrutura de repetição `for` é a mais adequada para esta tarefa, pois conhecemos previamente o tamanho do vetor. 
 
@@ -107,13 +107,13 @@ int main() {
 
 ------------------------------------------------------------------------
 
-# Matrizes (_Arrays_ Multidimensionais)
+## Matrizes (_Arrays_ Multidimensionais)
 Diferentemente dos vetores que organizam dados em uma única dimensão, as matrizes permitem representar dados em duas, três ou mais dimensões. 
 Uma matriz é essencialmente um vetor de vetores, organizada em linhas e colunas. 
 As matrizes em C são identificadas pela existência de dois ou mais pares de colchetes [ ] após o nome da variável no momento da declaração.
 Cada par de colchetes representa uma dimensão.
 
-## Declaração de Matrizes
+### Declaração de Matrizes
 Para declarar uma matriz, precisamos especificar o tipo dos elementos, o nome e o tamanho para cada dimensão.
 
 Sintaxe básica:
@@ -142,7 +142,7 @@ float imagens[10][1024][768][3]; // 10 imagens, 1024x768 pixels, 3 canais RGB
 ```
 
 
-## Inicialização
+### Inicialização
 
 A inicialização de matrizes multidimensionais pode ser feita usando chaves aninhadas, onde cada nível de chaves corresponde a uma dimensão. Quanto mais dimensões, mais níveis de chaves precisamos. A inicialização ajuda a visualizar a estrutura dimensional e evita trabalhar com valores indefinidos.
 
@@ -210,7 +210,7 @@ int main() {
 }
 ```
 
-## Acesso aos elementos
+### Acesso aos elementos
 
 O acesso a um elemento específico de uma matriz multidimensional é feito fornecendo um índice para cada dimensão, sempre começando em 0. 
 
@@ -255,7 +255,7 @@ int main() {
 }
 ```
 
-## Percurso em Matriz
+### Percurso em Matriz
 
 Para percorrer todos os elementos de uma matriz multidimensional, precisamos de uma estrutura de repetição para cada dimensão. O número de loops aninhados é igual ao número de dimensões. A ordem dos loops geralmente segue a ordem das dimensões, com o primeiro loop para a dimensão mais externa e o último para a mais interna.
 
@@ -329,3 +329,208 @@ int main() {
     return 0;
 }
 ```
+
+------------------------------------------------------------------------
+
+## Organização de Vetores e Matrizes na Memória
+
+
+
+Em C, um **vetor (array unidimensional)** é armazenado em **bloco
+contínuo de memória**.
+
+Exemplo:
+
+``` c
+int v[5] = {10, 20, 30, 40, 50};
+```
+
+Mesmo sendo representado logicamente como uma sequência de posições, na
+memória ele é armazenado de forma **linear e contígua**.
+
+------------------------------------------------------------------------
+
+### Representação Lógica
+
+Índices do vetor:
+
+    Índice:   0    1    2    3    4
+    Valor:   10   20   30   40   50
+
+------------------------------------------------------------------------
+
+### Representação Física na Memória
+
+Suponha:
+
+-   Endereço base = 1000
+-   sizeof(int) = 4 bytes
+
+  |Elemento |  Endereço|
+  |--- |---|
+  |v\[0\]  |   1000 |
+  |v\[1\]  |   1004 |
+  |v\[2\]  |   1008 |
+  |v\[3\]  |   1012 |
+  |v\[4\]  |   1016 |
+
+Cada elemento ocupa 4 bytes e é armazenado imediatamente após o
+anterior.
+
+------------------------------------------------------------------------
+
+### Fórmula de Endereçamento
+
+O endereço de:
+
+``` c
+v[i]
+```
+
+é calculado como:
+
+    base + (i * sizeof(tipo))
+
+------------------------------------------------------------------------
+
+### Exemplo
+
+Endereço de `v[3]`:
+
+    1000 + (3 * 4)
+    = 1000 + 12
+    = 1012
+
+
+------------------------------------------------------------------------
+
+As **matrizes** também são armazenadas de forma linear na memória, seguindo o modelo **Row-Major Order** (ordem por linhas). Isso significa que armazenamos primeiramente todos os elementos da linha 0, depois todos da linha 1, e assim sucessivamente.
+
+
+Mesmo que declaradas como:
+
+``` c
+int m[2][3];
+```
+
+a memória física do computador é sempre **unidimensional**, ou seja, uma
+sequência contínua de bytes.
+
+------------------------------------------------------------------------
+
+### Exemplo 2D --- Organização na Memória
+
+``` c
+int m[2][3] = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+```
+
+### Representação Lógica
+
+          Coluna
+           0   1   2
+         ----------------
+    L 0 |  1   2   3
+    L 1 |  4   5   6
+
+------------------------------------------------------------------------
+
+### Representação Física (Exemplo Numérico)
+
+Suponha:
+
+-   Endereço base = 1000
+-   sizeof(int) = 4 bytes
+
+  |Elemento |  Endereço|
+  | ---     | ---      |
+  |m\[0\]\[0\]  | 1000|
+  |m\[0\]\[1\]  | 1004|
+  |m\[0\]\[2\]  | 1008|
+  |m\[1\]\[0\]  | 1012|
+  |m\[1\]\[1\]  | 1016|
+  |m\[1\]\[2\]  | 1020|
+
+------------------------------------------------------------------------
+
+### Fórmula de Endereçamento 2D
+
+Endereço de:
+
+``` c
+m[i][j]
+```
+
+    base + ((i * numero_de_colunas) + j) * sizeof(tipo)
+
+### Exemplo
+
+Endereço de `m[1][2]`:
+
+    (1 * 3) + 2 = 5
+    1000 + (5 * 4) = 1020
+
+------------------------------------------------------------------------
+
+### Exemplo 3D --- Organização na Memória
+
+``` c
+int cubo[2][2][3] = {
+    { {1,2,3}, {4,5,6} },
+    { {7,8,9}, {10,11,12} }
+};
+```
+
+Dimensões:
+
+    [camada][linha][coluna]
+
+------------------------------------------------------------------------
+
+### Representação Lógica
+
+Camada 0:
+
+    1  2  3
+    4  5  6
+
+Camada 1:
+
+    7  8  9
+    10 11 12
+
+------------------------------------------------------------------------
+
+### Representação Linear na Memória
+
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+
+------------------------------------------------------------------------
+
+### Fórmula de Endereçamento 3D
+
+Para:
+
+``` c
+m[i][j][k]
+```
+
+Índice linear:
+
+    (i * D2 * D3) + (j * D3) + k
+
+Endereço final:
+
+    base + indice_linear * sizeof(tipo)
+
+### Exemplo
+
+Endereço de `cubo[1][0][2]`:
+
+    (1 * 2 * 3) + (0 * 3) + 2 = 8
+    2000 + (8 * 4) = 2032
+
+------------------------------------------------------------------------
+

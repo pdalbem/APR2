@@ -16,7 +16,6 @@ int main() {
     }
 
     // ---- Troca da linha 1 com a linha 4 ----
-    // (considerando índice começando em 0)
     for(int j = 0; j < COL; j++) {
         temp = matriz[1][j];
         matriz[1][j] = matriz[4][j];
