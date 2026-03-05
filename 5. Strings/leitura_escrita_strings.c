@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char nome[30];
+    printf("Digite seu nome : "); 
+    fgets(nome, sizeof(nome), stdin); 
+    nome[strcspn(nome, "\n")] = '\0'; // remove \n do final
+    printf("Olá, %s", nome);
+    return 0;
+}
