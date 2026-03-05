@@ -89,3 +89,9 @@ gcc programa.c -o programa
 *  Vetores
 *  Matrizes
 *  Declaração, inicialização, acesso e percurso 
+
+[5. Strings](https://github.com/pdalbem/APR2/tree/main/5.%20Strings)
+*  Strings em C
+*  Declaração e inicialização
+*  Leitura e escrita
+*  Manipulação de strings 
