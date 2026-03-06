@@ -286,7 +286,7 @@ Biblioteca responsável pela **manipulação de strings**.
 
 ------------------------------------------------------------------------
 
-# Principais Funções
+## Principais Funções
 
 ## strlen
 
@@ -421,7 +421,7 @@ Biblioteca usada para **classificar e transformar caracteres**.
 
 ------------------------------------------------------------------------
 
-# Funções de Classificação
+## Funções de Classificação
 
 ## isalpha
 
@@ -473,7 +473,7 @@ Verifica se é **maiúscula**.
 
 ------------------------------------------------------------------------
 
-# Funções de Conversão
+## Funções de Conversão
 
 ## tolower
 
