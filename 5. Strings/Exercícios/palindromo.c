@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int main() {
     char palavra[100];
@@ -14,7 +15,7 @@ int main() {
     fim = strlen(palavra) - 1;
 
     while (inicio < fim) {
-        if (palavra[inicio] != palavra[fim]) {
+        if (tolower(palavra[inicio]) != tolower(palavra[fim])) {
             ehPalindromo = 0;
             break;
         }
