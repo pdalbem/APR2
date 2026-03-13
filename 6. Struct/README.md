@@ -90,7 +90,8 @@ Também podemos atribuir valores através da leitura do teclado.
 Aluno a1;
 
 printf("Nome: ");
-scanf("%s", a1.nome);
+fgets(a1.nome, sizeof(a1.nome), stdin);
+a1.nome[strcspn(a1.nome, "\n")] = '\0';
 
 printf("Idade: ");
 scanf("%d", &a1.idade);
@@ -127,6 +128,8 @@ Ou seja, trata-se de **uma cópia independente**.
 
 Uma struct também pode possuir **arrays como campos**.
 
+Isso é muito comum quando um registro precisa armazenar vários valores do mesmo tipo, como notas de um aluno.
+
 ``` c
 typedef struct {
     char nome[50];
@@ -147,17 +150,48 @@ Aluno a1;
 Aluno a1 = {"Maria", 20, {8.5, 9.0, 7.5}};
 ```
 
+### Entrada de dados via teclado
+Exemplo de leitura dos dados de um aluno:
+```c
+#include <stdio.h>
+#include <string.h>
+
+Aluno a1;
+
+printf("Nome: ");
+fgets(a1.nome, sizeof(a1.nome), stdin);
+a1.nome[strcspn(a1.nome, "\n")] = '\0';
+
+printf("Idade: ");
+scanf("%d", &a1.idade);
+
+printf("Digite as 3 notas:\n");
+
+for(int i = 0; i < 3; i++){
+    printf("Nota %d: ", i+1);
+    scanf("%f", &a1.notas[i]);
+}
+```
+
 ### Acesso aos elementos
+O acesso aos campos da struct ocorre com o operador ponto (.).
+
+Para acessar o array, segue o padrão **variavel.campo[indice]**
 
 ``` c
+strcpy(a1.nome,"Joaquim");
+a1.idade = 20;
 a1.notas[0] = 8.5;
 a1.notas[1] = 9.0;
 a1.notas[2] = 7.5;
+
+printf("Nome: %s\n", a1.nome);
+printf("Idade: %d\n", a1.idade);
+
+for(int i = 0; i < 3; i++){
+    printf("Nota %d: %.2f\n", i+1, a1.notas[i]);
+}
 ```
-
-O acesso ocorre utilizando:
-
-    variavel.campo[indice]
 
 ------------------------------------------------------------------------
 
@@ -265,4 +299,50 @@ Quando temos structs aninhadas, usamos vários operadores ponto.
 ``` c
 f1.data_admissao.ano = 2025;
 f1.endereco.numero = 200;
+```
+------------------------------------------------------------------------
+
+### Leitura de dados via teclado
+
+``` c
+Funcionario f;
+
+printf("Nome do funcionario: ");
+fgets(f.nome, sizeof(f.nome), stdin);
+f.nome[strcspn(f.nome, "\n")] = '\0';
+
+printf("\nData de admissao\n");
+
+printf("Dia: ");
+scanf("%d", &f.data_admissao.dia);
+
+printf("Mes: ");
+scanf("%d", &f.data_admissao.mes);
+
+printf("Ano: ");
+scanf("%d", &f.data_admissao.ano);
+
+while(getchar()!='\n'); // limpa o \n do buffer
+
+printf("\nEndereco\n");
+
+printf("Rua: ");
+fgets(f.endereco.rua, sizeof(f.endereco.rua), stdin);
+f.endereco.rua[strcspn(f.endereco.rua, "\n")] = '\0';
+
+printf("Numero: ");
+scanf("%d", &f.endereco.numero);
+
+printf("\n--- Dados do Funcionario ---\n");
+
+printf("Nome: %s\n", f.nome);
+
+printf("Data de admissao: %02d/%02d/%d\n",
+       f.data_admissao.dia,
+       f.data_admissao.mes,
+       f.data_admissao.ano);
+
+printf("Endereco: %s, %d\n",
+       f.endereco.rua,
+       f.endereco.numero);
 ```

@@ -95,3 +95,11 @@ gcc programa.c -o programa
 *  Declaração e inicialização
 *  Leitura e escrita
 *  Manipulação de strings 
+
+[6. Struct](https://github.com/pdalbem/APR2/tree/main/6.%20Struct)
+*  Structs
+*  Criação de variáveis do tipo struct
+*  Comando typedef
+*  Array dentro da struct
+*  Array de struct
+*  Structs aninhadas

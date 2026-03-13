@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-#define TAM 2
+#define QTD_PRODUTOS 2
 
 int main() {
-    int M[TAM][TAM];
-    int R[TAM][TAM];
+    int M[QTD_PRODUTOS][QTD_PRODUTOS];
+    int R[QTD_PRODUTOS][QTD_PRODUTOS];
     int maior;
 
-    for(int i = 0; i < TAM; i++) {
-        for(int j = 0; j < TAM; j++) {
+    for(int i = 0; i < QTD_PRODUTOS; i++) {
+        for(int j = 0; j < QTD_PRODUTOS; j++) {
             printf("Digite o valor da linha %d, coluna %d: ",i,j);
             scanf("%d", &M[i][j]);
         }
@@ -19,8 +19,8 @@ int main() {
     maior = M[0][0];
 
     // Encontra o maior elemento da matriz
-    for(int i = 0; i < TAM; i++) {
-        for(int j = 0; j < TAM; j++) {
+    for(int i = 0; i < QTD_PRODUTOS; i++) {
+        for(int j = 0; j < QTD_PRODUTOS; j++) {
             if(M[i][j] > maior) {
                 maior = M[i][j];
             }
@@ -28,8 +28,8 @@ int main() {
     }
 
     // Calcula a matriz resultante R
-    for(int i = 0; i < TAM; i++) {
-        for(int j = 0; j < TAM; j++) {
+    for(int i = 0; i < QTD_PRODUTOS; i++) {
+        for(int j = 0; j < QTD_PRODUTOS; j++) {
             R[i][j] = M[i][j] * maior;
         }
     }
@@ -38,8 +38,8 @@ int main() {
     printf("\nMaior elemento: %d\n", maior);
     printf("Matriz resultante R:\n");
 
-    for(int i = 0; i < TAM; i++) {
-        for(int j = 0; j < TAM; j++) {
+    for(int i = 0; i < QTD_PRODUTOS; i++) {
+        for(int j = 0; j < QTD_PRODUTOS; j++) {
             printf("%d ", R[i][j]);
         }
         printf("\n");
