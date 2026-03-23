@@ -103,3 +103,12 @@ gcc programa.c -o programa
 *  Array dentro da struct
 *  Array de struct
 *  Structs aninhadas
+
+[7. Funções](https://github.com/pdalbem/APR2/tree/main/7.%20Fun%C3%A7%C3%B5es)
+*  Modularização
+*  Estrutura geral de uma função
+*  Protótipo de função
+*  Retorno de função
+*  Passagem de parâmetros (por valor)
+*  Arrays como parâmetros
+*  Structs em funções
