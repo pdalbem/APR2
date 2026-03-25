@@ -9,24 +9,26 @@ typedef struct {
     int quantidade;
 } Produto;
 
-//lê os 5 produtos na função 
-void lerProdutos(Produto p[], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("\nProduto %d\n", i + 1);
+// versão 2 do exercício.
+// Agora, lê apenas 1 produto e o retorna
+Produto lerProduto() {
+    Produto p;
 
-        printf("Nome: ");
-        fgets(p[i].nome, sizeof(p[i].nome), stdin);
-        p[i].nome[strcspn(p[i].nome, "\n")] = '\0';
+    printf("\nProduto\n");
 
-        printf("Preco: ");
-        scanf("%f", &p[i].preco);
+    printf("Nome: ");
+    fgets(p.nome, sizeof(p.nome), stdin);
+    p.nome[strcspn(p.nome, "\n")] = '\0';
 
-        printf("Quantidade em estoque: ");
-        scanf("%d", &p[i].quantidade);
-        while (getchar()!="\n");        
-    }
+    printf("Preco: ");
+    scanf("%f", &p.preco);
+
+    printf("Quantidade em estoque: ");
+    scanf("%d", &p.quantidade);
+    while (getchar() != '\n');
+
+    return p;
 }
-
 
 void exibirProdutos(Produto p[], int n) {
     printf("\n--- Lista de Produtos ---\n");
@@ -38,12 +40,10 @@ void exibirProdutos(Produto p[], int n) {
     }
 }
 
-
 Produto atualizarEstoque(Produto p, int novoEstoque) {
     p.quantidade = novoEstoque;
     return p;
 }
-
 
 void reajustarPrecos(Produto p[], int n, float percentual) {
     for (int i = 0; i < n; i++) {
@@ -55,7 +55,11 @@ int main() {
     Produto produtos[TAM];
     int opcao;
 
-    lerProdutos(produtos, TAM);
+    // estrutura de repetição para chamar a função TAM vezes
+    for (int i = 0; i < TAM; i++) {
+        printf("\nProduto %d\n", i + 1);
+        produtos[i] = lerProduto();
+    }
 
     do {
         printf("\n--- MENU ---\n");
@@ -65,7 +69,7 @@ int main() {
         printf("0 - Sair\n");
         printf("Opcao: ");
         scanf("%d", &opcao);
-        while(getchar()!="\n");
+        while(getchar() != '\n');
 
         switch (opcao) {
             case 1:
@@ -83,9 +87,10 @@ int main() {
                     scanf("%d", &novaQtd);
 
                     produtos[indice - 1] = atualizarEstoque(produtos[indice - 1], novaQtd);
-                } else 
+                } else {
                     printf("Produto invalido!\n");
-                
+                }
+
                 break;
             }
 
