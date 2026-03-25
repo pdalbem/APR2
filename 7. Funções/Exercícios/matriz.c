@@ -2,7 +2,7 @@
 
 #define TAM 5
 
-void lerMatriz(int m[TAM][TAM]) {
+void lerMatriz(int m[][TAM]) {
     for (int i = 0; i < TAM; i++) {
         for (int j = 0; j < TAM; j++) {
             printf("Digite o valor [%d][%d]: ", i, j);
@@ -11,7 +11,7 @@ void lerMatriz(int m[TAM][TAM]) {
     }
 }
 
-void mostrarMatriz(int m[TAM][TAM]) {
+void mostrarMatriz(int m[][TAM]) {
     printf("\nMatriz:\n");
     for (int i = 0; i < TAM; i++) {
         for (int j = 0; j < TAM; j++) {
@@ -21,7 +21,7 @@ void mostrarMatriz(int m[TAM][TAM]) {
     }
 }
 
-void multiplicarMatriz(int m[TAM][TAM], int valor) {
+void multiplicarMatriz(int m[][TAM], int valor) {
     for (int i = 0; i < TAM; i++) {
         for (int j = 0; j < TAM; j++) {
             m[i][j] *= valor;
