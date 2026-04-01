@@ -4,6 +4,13 @@
 #define CATEGORIAS 3
 #define JURADOS 2
 
+//Nas funções, eu forneço o tamanho da primeira dimensão da matriz apenas para deixar mais claro o entendimento.
+//Poderia omitir, conforme visto em aula:
+//void lerNotas(float notas[][CATEGORIAS][JURADOS]); 
+//float calcularSomaEscola(float notas[][CATEGORIAS][JURADOS], int escola);
+//float calcularMediaCategoria(float notas[][CATEGORIAS][JURADOS], int escola, int categoria);
+//void exibirResultados(float notas[][CATEGORIAS][JURADOS]);
+
 void lerNotas(float notas[ESCOLAS][CATEGORIAS][JURADOS]) {
     for (int e = 0; e < ESCOLAS; e++) {
         printf("\nEscola %d:\n", e + 1);

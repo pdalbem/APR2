@@ -4,7 +4,7 @@
 #define COL 2
 
 
-void lerMatriz(int A[LIN][COL]) {
+void lerMatriz(int A[][COL]) {
     for (int i = 0; i < LIN; i++) 
         for (int j = 0; j < COL; j++) {
             printf("A[%d][%d]: ", i, j);
@@ -13,7 +13,7 @@ void lerMatriz(int A[LIN][COL]) {
     
 }
 
-void exibirMatriz(int A[LIN][COL]) {
+void exibirMatriz(int A[][COL]) {
     printf("\nMatriz A:\n");
     for (int i = 0; i < LIN; i++) {
         for (int j = 0; j < COL; j++) 
@@ -24,7 +24,7 @@ void exibirMatriz(int A[LIN][COL]) {
 }
 
 
-int encontrarMaior(int A[LIN][COL]) {
+int encontrarMaior(int A[][COL]) {
     int maior = A[0][0];
 
     for (int i = 0; i < LIN; i++) 
@@ -36,7 +36,7 @@ int encontrarMaior(int A[LIN][COL]) {
 }
 
 
-void multiplicarPorValor(int A[LIN][COL], int valor) {
+void multiplicarPorValor(int A[][COL], int valor) {
     for (int i = 0; i < LIN; i++) 
         for (int j = 0; j < COL; j++) 
             A[i][j] *= valor;
@@ -44,14 +44,14 @@ void multiplicarPorValor(int A[LIN][COL], int valor) {
 }
 
 //A é a matriz original e At é a transposta
-void gerarTransposta(int A[LIN][COL], int At[COL][LIN]) {
+void gerarTransposta(int A[][COL], int At[][LIN]) {
     for (int i = 0; i < LIN; i++) 
         for (int j = 0; j < COL; j++) 
             At[j][i] = A[i][j];
 }
 
 // função para exibir a transposta. Repareo parâmetro é At[COL][LIN] agora
-void exibirTransposta(int At[COL][LIN]) {
+void exibirTransposta(int At[][LIN]) {
     printf("\nMatriz transposta de A:\n");
     for (int i = 0; i < COL; i++) {
         for (int j = 0; j < LIN; j++) {
