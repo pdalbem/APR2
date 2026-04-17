@@ -26,7 +26,7 @@ float *f;
 char *c;
 ```
 
-👉 O tipo indica **o tipo de dado apontado**
+O tipo indica **o tipo de dado apontado**
 
 ------------------------------------------------------------------------
 
@@ -133,20 +133,110 @@ int main() {
 
 ------------------------------------------------------------------------
 
-## 🔹 Ponteiro para struct
+## Ponteiro para struct
 
-``` c
-struct Aluno {
-    char nome[100];
-    int idade;
-    int notas[3];
-};
+É bastante útil utilizar ponteiros para struct:
+- evita cópias desnecessárias (melhor desempenho)
+- permite modificar a struct dentro de funções
+- é essencial para estruturas dinâmicas (listas, árvores, etc.)
 
-struct Aluno a = {"Joaquim",20, {8.5, 9.0, 9.5}};
-struct Aluno *p = &a;
+Existem duas formas para acessar os campos de uma struct via ponteiro:
 
-p->idade = 21;
-p->notas[0] = 8.7;
+- Forma tradicional (com desreferência)
+```c
+(*p).idade = 30;
+```
+- Forma mais usada (operador seta ->)
+```c
+p->idade = 30; //equivalente a (*p).idade
 ```
 
 
+### Usando ponteiro para struct em funções
+
+Aqui está o ponto mais importante 
+
+- Passagem por valor
+
+Uma cópia da struct é criada em memória e passada para a função. Qualquer alteração nesta cópia não será refletida no restante do código:
+
+```c
+void alterar(struct Pessoa p) {
+    p.idade = 50; // não altera o original
+}
+```
+
+- Passagem por referência (com ponteiro) 
+
+Agora a função recebe o endereço de memória da variável do tipo struct. Qualquer alteração é refletida na variável original:
+```c
+void alterar(struct Pessoa *p) {
+    p->idade = 50;
+}
+```
+
+Chamada:
+```c
+alterar(&p1);
+```
+
+Exemplo completo:
+
+``` c
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_NOTAS 3
+
+typedef struct
+{
+    int id;
+    char nome[100];
+    float notas[MAX_NOTAS];
+} Aluno;
+
+void lerDados(Aluno *a)
+{
+    printf("\nDigite o ID: ");
+    scanf("%d", &a->id);
+    while (getchar() != '\n');
+
+    printf("Digite o nome: ");
+    fgets(a->nome, sizeof(a->nome), stdin);
+    a->nome[strcspn(a->nome, "\n")] = '\0';
+
+    for (int i = 0; i < MAX_NOTAS; i++)
+    {
+        printf("Digite a nota %d: ", i + 1);
+        scanf("%f", &a->notas[i]);
+    }
+}
+
+void mostrarDados(Aluno *a)
+{
+    printf("\nId: %d", a->id);
+    printf("\nNome: %s", a->nome);
+    for (int i = 0; i < MAX_NOTAS; i++)
+        printf("\nNota %d: %.2f", i + 1, a->notas[i]);
+    printf("\n");    
+}
+
+float calcularMedia(Aluno *a){
+    float soma=0;
+    for (int i=0;i<MAX_NOTAS;i++)
+        soma += a->notas[i];
+    return soma/MAX_NOTAS;    
+}
+
+int main()
+{
+   Aluno a1;
+   Aluno *ptr1 = &a1;
+   lerDados(ptr1);
+   
+   mostrarDados(ptr1);
+   printf("Média de notas: %.2f", calcularMedia(ptr1)); 
+
+    return 0;
+}
+```
