@@ -14,8 +14,7 @@ void lerDados(Aluno *a)
 {
     printf("\nDigite o ID: ");
     scanf("%d", &a->id);
-    while (getchar() != '\n')
-        ;
+    while (getchar() != '\n');
 
     printf("Digite o nome: ");
     fgets(a->nome, sizeof(a->nome), stdin);
