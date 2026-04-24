@@ -112,3 +112,20 @@ gcc programa.c -o programa
 *  Passagem de parâmetros (por valor)
 *  Arrays como parâmetros
 *  Structs em funções
+
+[8. Ponteiros](https://github.com/pdalbem/APR2/tree/main/8.%20Ponteiros)
+*  Conceito
+*  Declaração e inicialização
+*  Operadores & e *
+*  Desreferência
+*  Passagem de parâmetros por referência
+*  Ponteiro para structs 
+
+[9. Alocação Dinâmica de Memória](https://github.com/pdalbem/APR2/tree/main/9.%20Aloca%C3%A7%C3%A3o%20Din%C3%A2mica%20de%20Mem%C3%B3ria)
+*  Alocação estática vs dinâmica
+*  Função malloc()
+*  Função calloc()
+*  Função realloc()
+*  Função free()
+*  Array dinâmico
+*  Função que retorna ponteiro
