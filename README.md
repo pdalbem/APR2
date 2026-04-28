@@ -129,3 +129,13 @@ gcc programa.c -o programa
 *  Função free()
 *  Array dinâmico
 *  Função que retorna ponteiro
+
+[10. Manipulação de Arquivos](https://github.com/pdalbem/APR2/tree/main/10.%20Arquivos)
+*  Tipos de arquivos: texto e binário
+*  Ponteiro FILE*
+*  Escrita em arquivo texto usando fprintf
+*  Leitura em arquivo texto usando fscanf
+*  Leitura em arquivo texto usando fgets
+*  Escrita em arquivo binário usando fwrite
+*  Leitura em arquivo binário usando fread
+*  Tratamento de erros
