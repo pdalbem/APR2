@@ -10,25 +10,15 @@ int main() {
     FILE *fp = fopen("pessoas.bin", "rb");
 
     if (fp == NULL) {
-        printf("Erro ao abrir arquivo para leitura!\n");
+        printf("Erro ao abrir arquivo!\n");
         return 1;
     }
 
-    Pessoa pessoas[3];
+    Pessoa p;
 
-    size_t lidos = fread(pessoas, sizeof(Pessoa), 3, fp);
-
-    if (lidos == 0) {
-        printf("Erro ao ler dados!\n");
-        fclose(fp);
-        return 1;
-    }
-
-    printf("Registros lidos: %zu\n\n", lidos);
-
-    for (size_t i = 0; i < lidos; i++) {
-        printf("ID: %d\n", pessoas[i].id);
-        printf("Nome: %s\n", pessoas[i].nome);
+    while (fread(&p, sizeof(Pessoa), 1, fp) == 1) {
+        printf("ID: %d\n", p.id);
+        printf("Nome: %s\n", p.nome);
         printf("-----------------\n");
     }
 
