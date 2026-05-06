@@ -139,3 +139,8 @@ gcc programa.c -o programa
 *  Escrita em arquivo binário usando fwrite
 *  Leitura em arquivo binário usando fread
 *  Tratamento de erros
+
+[10. Recursividade](https://github.com/pdalbem/APR2/tree/main/11.%20Recursividade)
+* Conceito
+* Caso base e caso recursivo
+* Exemplos
