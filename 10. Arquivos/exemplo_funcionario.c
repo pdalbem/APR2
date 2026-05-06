@@ -11,8 +11,8 @@ typedef struct {
     int    ativo;          /* 1 = ativo, 0 = inativo */
 } Funcionario;
 
-/* ---- salva um funcionário no final do arquivo ---- */
-int salvar(const Funcionario *f) {
+
+int salvar(Funcionario *f) {
     FILE *fp = fopen(ARQ, "ab");
     if (!fp) return -1;
     fwrite(f, sizeof(Funcionario), 1, fp);
@@ -20,7 +20,7 @@ int salvar(const Funcionario *f) {
     return 0;
 }
 
-/* ---- lista todos os funcionários ativos ---- */
+
 void listar(void) {
     FILE *fp = fopen(ARQ, "rb");
     if (!fp) { printf("Nenhum registro.\n"); return; }
@@ -55,9 +55,9 @@ int buscar(int id) {
 }
 
 int main(void) {
-    Funcionario f1 = {1, "Ana Lima",    4500.00, 1};
-    Funcionario f2 = {2, "Bruno Costa", 3800.00, 1};
-    Funcionario f3 = {3, "Carla Melo",  5200.00, 0}; /* inativa */
+    Funcionario f1 = {1, "Joaquim",    4500.00, 1};
+    Funcionario f2 = {2, "Maria", 3800.00, 1};
+    Funcionario f3 = {3, "João",  5200.00, 0}; /* inativa */
 
     salvar(&f1);
     salvar(&f2);
