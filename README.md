@@ -140,7 +140,31 @@ gcc programa.c -o programa
 *  Leitura em arquivo binário usando fread
 *  Tratamento de erros
 
-[10. Recursividade](https://github.com/pdalbem/APR2/tree/main/11.%20Recursividade)
+[11. Recursividade](https://github.com/pdalbem/APR2/tree/main/11.%20Recursividade)
 * Conceito
 * Caso base e caso recursivo
 * Exemplos
+
+[12. Complexidade de Algoritmos](https://github.com/pdalbem/APR2/tree/main/12.%20Complexidade)
+* Importância da análise de algoritmos
+* Complexidade no tempo
+* Complexidade no espaço
+* Como calcular a complexidade
+* Complexidade assintótica
+* Notação Big-O
+* Principais classes de complexidade
+
+[13. Algoritmos de Ordenação](https://github.com/pdalbem/APR2/tree/main/13.%20Ordena%C3%A7%C3%A3o)
+* Bubble Sort
+* Selection Sort
+* Insertion Sort
+* Merge Sort
+* Quick Sort
+* Comparação entre os algoritmos
+
+[14. Algoritmos de Busca](https://github.com/pdalbem/APR2/tree/main/14.%20Busca)
+* Busca sequencial
+* Busca binária
+* Comparação entre os algoritmos
+
+
