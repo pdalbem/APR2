@@ -108,23 +108,43 @@ void trocar(Aluno *a, Aluno *b)
 // Bubble sort
 void ordenarPorProntuario(Turma *turma)
 {
+    int trocou;
     for (int i = 0; i < turma->quantidade - 1; i++)
+    {
+        trocou = 0;
         for (int j = 0; j < turma->quantidade - 1 - i; j++)
-            if (strcmp(
-                    turma->dados[j].prontuario,
-                    turma->dados[j + 1].prontuario) > 0)
+        {
+            if (strcmp(turma->dados[j].prontuario,turma->dados[j + 1].prontuario) > 0)
+            {
                 trocar(&turma->dados[j], &turma->dados[j + 1]);
+                trocou = 1;
+            }
+        }
 
+        if (!trocou)
+            break;
+    }
 }
 
 // Bubble sort
 void ordenarPorIRA(Turma *turma)
 {
+    int trocou;
     for (int i = 0; i < turma->quantidade - 1; i++)
+    {
+        trocou = 0;
         for (int j = 0; j < turma->quantidade - 1 - i; j++)
+        {
             if (turma->dados[j].ira > turma->dados[j + 1].ira)
+            {
                 trocar(&turma->dados[j], &turma->dados[j + 1]);
+                trocou = 1;
+            }
+        }
 
+        if (!trocou)
+            break;
+    }
 }
 
 Aluno *buscarAluno(Turma *turma, char prontuario[])
