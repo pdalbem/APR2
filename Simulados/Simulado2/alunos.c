@@ -87,7 +87,7 @@ void listarAlunos(Turma *turma)
         return;
     }
 
-    printf("\nLISTA DE ALUNOS \n");
+    printf("\Lista de alunos:\n");
 
     for (int i = 0; i < turma->quantidade; i++)
     {
@@ -223,7 +223,7 @@ int main()
     if (resultado == SUCCESS)
         printf("%d aluno(s) carregado(s) do arquivo.\n", turma.quantidade);
     else if (resultado == FILE_NOT_FOUND)
-        printf("Arquivo não encontrado. Iniciando turma vazia.\n");
+        printf("Arquivo não encontrado. Iniciando turma...\n");
     else
         printf("Erro ao carregar dados.\n");
 
