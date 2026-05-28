@@ -45,7 +45,11 @@ int carregarDados(Turma *turma)
     if (fp == NULL)
         return FILE_NOT_FOUND;
 
-    fread(&turma->quantidade, sizeof(int), 1, fp);
+    if (fread(&turma->quantidade, sizeof(int), 1, fp) != 1)
+    {
+        fclose(fp);
+        return FAILURE;
+    }
 
     if (turma->quantidade > 0)
     {
@@ -57,7 +61,14 @@ int carregarDados(Turma *turma)
             return FAILURE;
         }
 
-        fread(turma->dados, sizeof(Aluno), turma->quantidade, fp);
+        if (fread(turma->dados, sizeof(Aluno), turma->quantidade, fp) != turma->quantidade)
+         {
+            free(turma->dados);
+            turma->dados = NULL;
+            turma->quantidade = 0;
+            fclose(fp);
+            return FAILURE;
+        }
     }
 
     fclose(fp);
@@ -212,13 +223,19 @@ int salvar(Turma *turma)
     if (fp == NULL)
         return FAILURE;
    
-    fwrite(&turma->quantidade, sizeof(int), 1, fp);
+    if (fwrite(&turma->quantidade, sizeof(int), 1,fp) != 1)
+    {
+        fclose(fp);
+        return FAILURE;
+    }
 
-    fwrite(
-        turma->dados,
-        sizeof(Aluno),
-        turma->quantidade,
-        fp);
+   if (turma->quantidade > 0)
+      if (fwrite(turma->dados, sizeof(Aluno), turma->quantidade, fp) != turma->quantidade)
+        {
+            fclose(fp);
+            return FAILURE;
+        }
+    
 
     fclose(fp);
 
