@@ -437,7 +437,7 @@ Resultado sempre será **verdadeiro (1)** ou **falso (0)**.
 Usados para combinar expressões booleanas:
 
 - `&&` (E lógico)
-- `\|\|` (OU lógico)
+- <code>||</code> (OU lógico)
 - `!` (NÃO lógico)
 
 Exemplo:
