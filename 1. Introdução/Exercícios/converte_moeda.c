@@ -3,10 +3,10 @@
 int main() {
     float cotacaoDolar, valorDolar, valorReais;
 
-    printf("Digite a cotacao do dolar em reais: ");
+    printf("Digite a cotação do dólar em reais: ");
     scanf("%f", &cotacaoDolar);
 
-    printf("Digite o valor em dolar: ");
+    printf("Digite o valor em dólar: ");
     scanf("%f", &valorDolar);
 
     valorReais = cotacaoDolar * valorDolar;

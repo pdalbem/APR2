@@ -4,7 +4,7 @@ int main() {
     float salarioMinimo, qtdQuilowatts;
     float valorQuilowatt, valorTotal;
 
-    printf("Digite o valor do salario minimo: ");
+    printf("Digite o valor do salário mínimo: ");
     scanf("%f", &salarioMinimo);
 
     printf("Digite a quantidade de quilowatts consumida: ");

@@ -395,6 +395,63 @@ Evite números mágicos no código
 
 ---
 
+## Enumeração (enum)
+Uma enumeração (enum) é um tipo de dado definido pelo programador que permite representar um conjunto finito de valores nomeados. Em vez de utilizar números "mágicos" (como 0, 1, 2), utiliza-se nomes simbólicos, tornando o código mais legível, organizado e fácil de manter.
+
+A sintaxe básica é:
+```c
+enum NomeDaEnumeracao {
+    VALOR1,
+    VALOR2,
+    VALOR3
+};
+```
+Exemplo:
+```c
+#include <stdio.h>
+
+int main() {
+   enum DiaSemana {
+       DOMINGO,
+       SEGUNDA,
+       TERCA,
+       QUARTA,
+       QUINTA,
+       SEXTA,
+       SABADO
+    };
+
+    enum DiaSemana hoje = QUARTA;
+    printf("%d\n", hoje);
+
+    return 0;
+}
+```
+Cada identificador da enumeração recebe automaticamente um valor inteiro, começando em 0.
+
+Saída será 3. O enum NÃO armazena uma lista de strings.
+
+Outro exemplo:
+```c
+#include <stdio.h>
+
+int main() {
+   enum StatusLivro {
+     DISPONIVEL,
+     EMPRESTADO,
+     RESERVADO
+   };
+
+   enum StatusLivro status = EMPRESTADO;
+
+   if (status == EMPRESTADO)
+      printf("Livro emprestado");
+
+   return 0; 
+}   
+```
+
+---
 
 ## Operadores aritméticos
 

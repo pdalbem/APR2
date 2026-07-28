@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <math.h>
 
+/*
+Este código utiliza a função pow(base,expoente) da biblioteca <math.h>
+Para compilá-lo, é preciso utilizar -lm
+Faça isso no terminal para compilar: gcc investimento.c -o investimento -lm 
+Faça isso no terminal para executar: ./investimento   
+*/
+
 int main() {
     float capital, taxa, montante_total;
     int tempo, i;
