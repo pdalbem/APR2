@@ -60,7 +60,7 @@ gcc programa.c -o programa
 ``` 
 
 ## Conteúdo:
-[1. Introdução à linguagem C](https://github.com/pdalbem/APR2/tree/main/1.%20Introdu%C3%A7%C3%A3o)
+[1. Introdução à linguagem C](https://github.com/pdalbem/APR2/tree/main/01-introducao)
 * Breve histórico de C
 * Tipos de dados
 * Variáveis e constantes
@@ -71,32 +71,32 @@ gcc programa.c -o programa
 * Operadores lógicos
 * Entrada e saída de dados
 
-[2. Estruturas de Decisão](https://github.com/pdalbem/APR2/tree/main/2.%20Estruturas%20de%20Decis%C3%A3o)
+[2. Estruturas de Decisão](https://github.com/pdalbem/APR2/tree/main/02-estruturas-decisao)
 * `if`
 * `if-else`
 * `if-else-if`
 * `switch-case`
 * Operador ternário
 
-[3. Estruturas de Repetição](https://github.com/pdalbem/APR2/tree/main/3.%20Estruturas%20de%20Repeti%C3%A7%C3%A3o)
+[3. Estruturas de Repetição](https://github.com/pdalbem/APR2/tree/main/03-estruturas-repeticao)
 * `while`
 * `do-while`
 * `for`
 * `break` e `continue`
 
-[4. Vetores e Matrizes](https://github.com/pdalbem/APR2/tree/main/4.Vetores%20e%20Matrizes)
+[4. Vetores e Matrizes](https://github.com/pdalbem/APR2/tree/main/04-arrays)
 *  Variável composta homogênea
 *  Vetores
 *  Matrizes
 *  Declaração, inicialização, acesso e percurso 
 
-[5. Strings](https://github.com/pdalbem/APR2/tree/main/5.%20Strings)
+[5. Strings](https://github.com/pdalbem/APR2/tree/main/05-strings)
 *  Strings em C
 *  Declaração e inicialização
 *  Leitura e escrita
 *  Manipulação de strings 
 
-[6. Struct](https://github.com/pdalbem/APR2/tree/main/6.%20Struct)
+[6. Struct](https://github.com/pdalbem/APR2/tree/main/06-struct)
 *  Structs
 *  Criação de variáveis do tipo struct
 *  Comando typedef
@@ -104,7 +104,7 @@ gcc programa.c -o programa
 *  Array de struct
 *  Structs aninhadas
 
-[7. Funções](https://github.com/pdalbem/APR2/tree/main/7.%20Fun%C3%A7%C3%B5es)
+[7. Funções](https://github.com/pdalbem/APR2/tree/main/07-funcoes)
 *  Modularização
 *  Estrutura geral de uma função
 *  Protótipo de função
@@ -113,7 +113,7 @@ gcc programa.c -o programa
 *  Arrays como parâmetros
 *  Structs em funções
 
-[8. Ponteiros](https://github.com/pdalbem/APR2/tree/main/8.%20Ponteiros)
+[8. Ponteiros](https://github.com/pdalbem/APR2/tree/main/08-ponteiros)
 *  Conceito
 *  Declaração e inicialização
 *  Operadores & e *
@@ -121,7 +121,7 @@ gcc programa.c -o programa
 *  Passagem de parâmetros por referência
 *  Ponteiro para structs 
 
-[9. Alocação Dinâmica de Memória](https://github.com/pdalbem/APR2/tree/main/9.%20Aloca%C3%A7%C3%A3o%20Din%C3%A2mica%20de%20Mem%C3%B3ria)
+[9. Alocação Dinâmica de Memória](https://github.com/pdalbem/APR2/tree/main/09-alocacao-dinamica-memoria)
 *  Alocação estática vs dinâmica
 *  Função malloc()
 *  Função calloc()
@@ -130,7 +130,7 @@ gcc programa.c -o programa
 *  Array dinâmico
 *  Função que retorna ponteiro
 
-[10. Manipulação de Arquivos](https://github.com/pdalbem/APR2/tree/main/10.%20Arquivos)
+[10. Manipulação de Arquivos](https://github.com/pdalbem/APR2/tree/main/10-arquivos)
 *  Tipos de arquivos: texto e binário
 *  Ponteiro FILE*
 *  Escrita em arquivo texto usando fprintf
@@ -140,12 +140,12 @@ gcc programa.c -o programa
 *  Leitura em arquivo binário usando fread
 *  Tratamento de erros
 
-[11. Recursividade](https://github.com/pdalbem/APR2/tree/main/11.%20Recursividade)
+[11. Recursividade](https://github.com/pdalbem/APR2/tree/main/11-recursividade)
 * Conceito
 * Caso base e caso recursivo
 * Exemplos
 
-[12. Complexidade de Algoritmos](https://github.com/pdalbem/APR2/tree/main/12.%20Complexidade)
+[12. Complexidade de Algoritmos](https://github.com/pdalbem/APR2/tree/main/12-complexidade-algoritmo)
 * Importância da análise de algoritmos
 * Complexidade no tempo
 * Complexidade no espaço
@@ -154,7 +154,7 @@ gcc programa.c -o programa
 * Notação Big-O
 * Principais classes de complexidade
 
-[13. Algoritmos de Ordenação](https://github.com/pdalbem/APR2/tree/main/13.%20Ordena%C3%A7%C3%A3o)
+[13. Algoritmos de Ordenação](https://github.com/pdalbem/APR2/tree/main/13-ordenacao)
 * Bubble Sort
 * Selection Sort
 * Insertion Sort
@@ -162,7 +162,7 @@ gcc programa.c -o programa
 * Quick Sort
 * Comparação entre os algoritmos
 
-[14. Algoritmos de Busca](https://github.com/pdalbem/APR2/tree/main/14.%20Busca)
+[14. Algoritmos de Busca](https://github.com/pdalbem/APR2/tree/main/14-busca)
 * Busca sequencial
 * Busca binária
 * Comparação entre os algoritmos
