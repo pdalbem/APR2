@@ -1,21 +1,21 @@
 #include <stdio.h>
 
-#define QTD_PRODUTOS 10
+#define QTD_FUNC 10
 
 int main(){
-    float salarios[QTD_PRODUTOS];
+    float salarios[QTD_FUNC];
     float soma=0;
 
-    for (int i=0; i<QTD_PRODUTOS; i++){
+    for (int i=0; i<QTD_FUNC; i++){
         printf("Digite o salário %d: ", i+1);
         scanf("%f", &salarios[i]);
         soma+=salarios[i];
     }
 
-    float media = soma/QTD_PRODUTOS;
+    float media = soma/QTD_FUNC;
     printf("\nMédia dos salários: %.2f", media);
 
-    for (int i=0;i<QTD_PRODUTOS;i++){
+    for (int i=0;i<QTD_FUNC;i++){
         printf("\nSalário atual: %.2f", salarios[i]);
         if (salarios[i]>=media)
            salarios[i] = salarios[i] * 1.05;
