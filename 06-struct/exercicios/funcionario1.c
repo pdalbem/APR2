@@ -63,8 +63,7 @@ int main()
 
     endereco.cidade = cidade; //faço atribuição da variável cidade para endereco.cidade 
 
-    while (getchar() != "\n")
-        ;
+    while (getchar() != '\n' && getchar() != EOF);
 
     Funcionario funcionario;
     printf("Digite o nome do funcionário: ");

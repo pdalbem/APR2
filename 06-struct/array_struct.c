@@ -48,10 +48,11 @@ int main() {
         for(int j = 0; j < 3; j++) {
             scanf("%f", &turma1[i].media[j]);
         }
+        while (getchar() != '\n' && getchar()!= EOF);
     }
 
     // Exibindo dados
-    printf("\n--- Dados da turma1 ---\n");
+    printf("\nDados da turma1\n");
 
     for(int i = 0; i < 3; i++) {
 

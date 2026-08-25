@@ -10,7 +10,7 @@ int main()
     fgets(str1, sizeof(str1), stdin);
     str1[strcspn(str1, "\n")] = '\0';
 
-    while (getchar()!='\n'); //limpa buffer caso ocorra buffer overflow
+    while (getchar() != '\n' && getchar()!= EOF);//limpa buffer caso ocorra buffer overflow
     
     printf("Enter second string:");
     fgets(str2, sizeof(str2), stdin);

@@ -29,7 +29,7 @@ int main() {
         printf("Quantidade em estoque: ");
         scanf("%d", &produtos[i].quantidade);
 
-        while(getchar()!= '\n'); // remove o \n deixado pelo scanf
+        while (getchar() != '\n' && getchar()!= EOF); // remove o \n deixado pelo scanf
 
         somaPrecos += produtos[i].preco;
     }

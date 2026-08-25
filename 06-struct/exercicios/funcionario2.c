@@ -43,7 +43,7 @@ int main() {
     printf("Ano: ");
     scanf("%d", &funcionario.data_admissao.ano);
 
-    while (getchar()!='\n');
+    while (getchar() != '\n' && getchar()!= EOF);
 
     printf("Endereço\n");
     printf("Rua: ");
@@ -52,7 +52,7 @@ int main() {
 
     printf("Número: ");
     scanf("%d", &funcionario.endereco.numero);
-    while (getchar()!='\n');
+    while (getchar() != '\n' && getchar()!= EOF);
 
     printf("Cidade: ");
     fgets(funcionario.endereco.cidade.nome, sizeof(funcionario.endereco.cidade.nome), stdin);

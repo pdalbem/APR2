@@ -8,7 +8,7 @@ int main()
     fgets(nome, sizeof(nome), stdin);  //usuário pode digitar mais que 29 chars. O fgets captura somente 29 chars, deixando resto no buffer
     nome[strcspn(nome, "\n")] = '\0'; // remove \n do final
     
-    while (getchar() != '\n'); //limpeza de buffer
+    while (getchar() != '\n' && getchar()!= EOF); //limpeza de buffer
 
     char curso[20];
     printf("Digite seu curso: ");
