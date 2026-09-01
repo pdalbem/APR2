@@ -23,13 +23,13 @@ void lerProdutos(Produto p[], int n) {
 
         printf("Quantidade em estoque: ");
         scanf("%d", &p[i].quantidade);
-        while (getchar()!="\n");        
+        while (getchar()!='\n');        
     }
 }
 
 
 void exibirProdutos(Produto p[], int n) {
-    printf("\n--- Lista de Produtos ---\n");
+    printf("\nLista de Produtos \n");
     for (int i = 0; i < n; i++) {
         printf("\nProduto %d\n", i + 1);
         printf("Nome: %s\n", p[i].nome);
@@ -58,14 +58,14 @@ int main() {
     lerProdutos(produtos, TAM);
 
     do {
-        printf("\n--- MENU ---\n");
+        printf("\n    MENU \n");
         printf("1 - Exibir produtos\n");
         printf("2 - Atualizar estoque\n");
         printf("3 - Reajustar precos\n");
         printf("0 - Sair\n");
         printf("Opcao: ");
         scanf("%d", &opcao);
-        while(getchar()!="\n");
+        while(getchar()!='\n');
 
         switch (opcao) {
             case 1:

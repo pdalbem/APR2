@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void dataExtenso(int dia, int mes, int ano) {
-    char *meses[] = {
+    char meses[][12] = {
         "janeiro", "fevereiro", "março", "abril",
         "maio", "junho", "julho", "agosto",
         "setembro", "outubro", "novembro", "dezembro"

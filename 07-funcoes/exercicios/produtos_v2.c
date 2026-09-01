@@ -31,7 +31,7 @@ Produto lerProduto() {
 }
 
 void exibirProdutos(Produto p[], int n) {
-    printf("\n--- Lista de Produtos ---\n");
+    printf("\nLista de Produtos \n");
     for (int i = 0; i < n; i++) {
         printf("\nProduto %d\n", i + 1);
         printf("Nome: %s\n", p[i].nome);
@@ -62,7 +62,7 @@ int main() {
     }
 
     do {
-        printf("\n--- MENU ---\n");
+        printf("\n    MENU \n");
         printf("1 - Exibir produtos\n");
         printf("2 - Atualizar estoque\n");
         printf("3 - Reajustar precos\n");

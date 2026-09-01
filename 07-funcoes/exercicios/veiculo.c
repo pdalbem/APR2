@@ -25,13 +25,13 @@ Veiculo lerVeiculo() {
 
     printf("Digite o ano de fabricacao: ");
     scanf("%d", &v.ano);
-    while(getchar()!="\n");
+    while(getchar()!='\n');
 
     return v;
 }
 
 void exibirVeiculo(Veiculo v) {
-    printf("\n--- Dados do Veiculo ---\n");
+    printf("\nDados do Veiculo\n");
     printf("Placa: %s\n", v.placa);
     printf("Marca: %s\n", v.marca);
     printf("Modelo: %s\n", v.modelo);
@@ -47,7 +47,7 @@ Veiculo atualizarVeiculo(Veiculo v) {
 int main() {
     Veiculo v;
 
-    printf("=== Cadastro de Veiculo ===\n");
+    printf("\nCadastro de Veiculo \n");
     v = lerVeiculo();
 
     exibirVeiculo(v);
@@ -55,7 +55,7 @@ int main() {
     printf("\nDeseja atualizar os dados? (s/n): ");
     char op;
     scanf(" %c", &op);
-    while(getchar()!="\n");
+    while(getchar()!='\n');
 
     if (op == 's' || op == 'S') {
         v = atualizarVeiculo(v);
