@@ -12,7 +12,8 @@ typedef struct {
     int disponivel;   // 1 = disponível, 0 = indisponível
 } Veiculo;
 
-
+Veiculo lerVeiculo();
+int inserirVeiculo(Veiculo veiculos[], int quantidade, Veiculo novo);
 int cadastrarVeiculo(Veiculo veiculos[], int quantidade);
 void exibirVeiculos(Veiculo veiculos[], int quantidade);
 int buscarVeiculo(Veiculo veiculos[], int quantidade, char placa[]);
@@ -90,12 +91,36 @@ int main() {
 }
 
 
-int cadastrarVeiculo(Veiculo veiculos[], int quantidade) {
-    if (quantidade >= MAX_VEICULOS) {
-        printf("Nao e possivel cadastrar mais veiculos.\n");
+
+// Insere um veiculo no array mantendo a ordenacao
+int inserirVeiculo(Veiculo veiculos[], int quantidade, Veiculo novo) {
+
+    // Verifica se a placa ja esta cadastrada
+    if (buscarVeiculo(veiculos, quantidade, novo.placa) != -1) {
+        printf("Já existe um veículo cadastrado com essa placa.\n");
         return quantidade;
     }
 
+    // Encontra a posicao de insercao
+    int posicao = 0;
+    while (posicao < quantidade && strcmp(veiculos[posicao].placa, novo.placa) < 0) 
+        posicao++;
+    
+
+    // Desloca os elementos para a direita
+    for (int i = quantidade; i > posicao; i--) 
+        veiculos[i] = veiculos[i - 1];
+    
+
+    veiculos[posicao] = novo;
+
+    printf("Veículo cadastrado com sucesso.\n");
+
+    return quantidade + 1;
+}
+
+// Lê os dados do veículo
+Veiculo lerVeiculo() {
     Veiculo novo;
 
     printf("\nPlaca: ");
@@ -109,19 +134,19 @@ int cadastrarVeiculo(Veiculo veiculos[], int quantidade) {
 
     novo.disponivel = 1;
 
-    // Encontra a posição de inserção
-    int posicao = 0;
-    while (posicao < quantidade && strcmp(veiculos[posicao].placa, novo.placa) < 0) 
-        posicao++;
-    
+    return novo;
+}
 
-    // Desloca os elementos para a direita
-    for (int i = quantidade; i > posicao; i--) 
-        veiculos[i] = veiculos[i - 1];
-    
-    // Insere o novo veículo
-    veiculos[posicao] = novo;
-    return quantidade + 1;
+
+int cadastrarVeiculo(Veiculo veiculos[], int quantidade) {
+    if (quantidade >= MAX_VEICULOS) {
+        printf("Não é possível cadastrar mais veículos.\n");
+        return quantidade;
+    }
+
+    Veiculo novo = lerVeiculo();
+
+    return inserirVeiculo(veiculos, quantidade, novo);
 }
 
 
