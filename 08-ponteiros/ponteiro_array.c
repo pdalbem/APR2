@@ -1,12 +1,16 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main()
-{
-    int array[] = {100, 200, 300};  
-    int *pointer = array;
-    printf("Elementos: %d %d %d\n", array[0], array[1], array[2]);
-    printf("Elementos: %d %d %d\n", *pointer, *(pointer + 1), *(pointer + 2));
+int main() {
+    int v[3] = {10, 20, 30};
+    int (*p)[3] = &v; // p aponta para o array todo
+  
+
+    (*p)[1] = 99;  // altera v[1]
+    (*p)[0] = 50;  // altera v[0]
+
+    for (int i = 0; i < 3; i++) 
+        printf("v[%d] = %d\n", i, (*p)[i]);
+
 
     return 0;
 }
