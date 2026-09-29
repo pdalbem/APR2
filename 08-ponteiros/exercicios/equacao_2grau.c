@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 int resolverEquacao(double a, double b, double c, double *r1, double *r2) {
-    if (a == 0) {
-        return -1; // 1 raiz
-    }
+    if (a == 0) 
+        return -1; // não forma equação do 2 grau
+    
 
     double delta = b*b - 4*a*c;
 
@@ -33,9 +33,9 @@ int main() {
     resultado = resolverEquacao(1, -5, 6, &r1, &r2);
 
     if (resultado == 2)
-        printf("Duas raízes: %.2lf e %.2lf\n", r1, r2);
+        printf("Duas raízes: %.2f e %.2f\n", r1, r2);
     else if (resultado == 1)
-        printf("Uma raiz: %.2lf\n", r1);
+        printf("Uma raiz: %.2f\n", r1);
     else if (resultado == 0)
         printf("Não há raízes reais\n");
     else
