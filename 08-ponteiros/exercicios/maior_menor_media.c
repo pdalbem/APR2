@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 float calcularMedia(int v[], int n) {
     if (n <= 0) return 0;
 
@@ -10,7 +9,6 @@ float calcularMedia(int v[], int n) {
     
     return (float)soma / n;
 }
-
 
 int calcularMaior(int v[], int n) {
     if (n <= 0) return 0;
@@ -23,7 +21,6 @@ int calcularMaior(int v[], int n) {
     return maior;
 }
 
-
 int calcularMenor(int v[], int n) {
     if (n <= 0) return 0;
 
@@ -34,7 +31,6 @@ int calcularMenor(int v[], int n) {
     
     return menor;
 }
-
 
 float obterEstatisticas(int v[], int n, int *maior, int *menor) {
     *maior = calcularMaior(v, n);
@@ -51,7 +47,7 @@ int main() {
 
     media = obterEstatisticas(v, n, &maior, &menor);
 
-    printf("Media: %.2f\n", media);
+    printf("Média: %.2f\n", media);
     printf("Maior: %d\n", maior);
     printf("Menor: %d\n", menor);
 

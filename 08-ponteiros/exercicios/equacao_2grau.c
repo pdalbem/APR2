@@ -5,13 +5,11 @@ int resolverEquacao(double a, double b, double c, double *r1, double *r2) {
     if (a == 0) 
         return -1; // não forma equação do 2 grau
     
-
     double delta = b*b - 4*a*c;
 
     if (delta < 0) 
         return 0; // não há raízes reais
     
-
     if (delta == 0) {
         *r1 = -b / (2*a);
         return 1; // uma raiz
