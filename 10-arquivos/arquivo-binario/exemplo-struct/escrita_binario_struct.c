@@ -8,7 +8,7 @@ typedef struct {
 int main() {
     FILE *fp = fopen("dados.bin", "wb");
 
-    Pessoa p = {1, "Carlos"};
+    Pessoa p = {1, "Maria"};
 
     fwrite(&p, sizeof(Pessoa), 1, fp);
 
