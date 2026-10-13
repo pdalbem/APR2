@@ -4,6 +4,7 @@
 
 #define SUCESSO 1
 #define FALHA 0
+#define ARQ_NAO_ENCONTRADO -1
 
 #define ARQUIVO "produtos.bin"
 
@@ -19,7 +20,6 @@ typedef struct
     Produto *dados;
     int quantidade;
 } Estoque;
-
 
 void inicializarEstoque(Estoque *estoque)
 {
@@ -41,7 +41,7 @@ int carregarEstoque(Estoque *estoque)
     inicializarEstoque(estoque);
 
     if (arquivo == NULL)
-        return FALHA;
+        return ARQ_NAO_ENCONTRADO;
 
     int resultado = SUCESSO;
 
@@ -128,13 +128,16 @@ int main()
     Estoque estoque;
     int opcao;
 
-    if (carregarEstoque(&estoque) == FALHA)
+    int resp = carregarEstoque(&estoque);
+    if (resp == FALHA)
     {
         printf("Erro ao carregar os produtos.\n");
         return 1;
     }
-
-    printf("Produtos carregados: %d\n", estoque.quantidade);
+    else if (resp == ARQ_NAO_ENCONTRADO)
+        printf("Arquivo não encontrado. Iniciando estoque vazio\n");
+    else
+        printf("Produtos carregados: %d\n", estoque.quantidade);
 
     do
     {
@@ -146,7 +149,8 @@ int main()
         printf("Opçãoo: ");
         scanf("%d", &opcao);
 
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
 
         switch (opcao)
         {
