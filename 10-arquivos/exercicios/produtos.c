@@ -36,36 +36,43 @@ void liberarEstoque(Estoque *estoque)
 
 int carregarEstoque(Estoque *estoque)
 {
-    FILE *arquivo = fopen(ARQUIVO, "rb");
-
     inicializarEstoque(estoque);
 
+    FILE *arquivo = fopen(ARQUIVO, "rb");
     if (arquivo == NULL)
         return ARQ_NAO_ENCONTRADO;
 
-    int resultado = SUCESSO;
+    int quantidade;
 
-    if (fread(&estoque->quantidade, sizeof(int), 1, arquivo) != 1)
-        resultado = FALHA;
-
-    if (estoque->quantidade > 0)
+    if (fread(&quantidade, sizeof(int), 1, arquivo) != 1 || quantidade < 0)
     {
-        estoque->dados = (Produto *)malloc(estoque->quantidade * sizeof(Produto));
-
-        if (estoque->dados == NULL)
-            resultado = FALHA;
-
-        if (fread(estoque->dados, sizeof(Produto), estoque->quantidade, arquivo) != estoque->quantidade)
-        {
-            liberarEstoque(estoque);
-            resultado = FALHA;
-        }
+        fclose(arquivo);
+        return FALHA;
     }
 
-    if (fclose(arquivo) == EOF)
-        resultado = FALHA;
+    if (quantidade > 0)
+    {
+        Produto *dados = malloc(quantidade * sizeof(Produto));
+        if (dados == NULL)
+        {
+            fclose(arquivo);
+            return FALHA;
+        }
 
-    return resultado;
+        if (fread(dados, sizeof(Produto), quantidade, arquivo) != quantidade)
+        {
+            free(dados);
+            fclose(arquivo);
+            return FALHA;
+        }
+
+        // Tudo OK, campos da struct recebem variáveis
+        estoque->dados = dados;
+        estoque->quantidade = quantidade;
+    }
+
+    fclose(arquivo);
+    return SUCESSO;
 }
 
 int adicionarProduto(Estoque *estoque, Produto *produto)
@@ -116,18 +123,18 @@ int removerProduto(Estoque *estoque, int id, Produto *produto)
     return FALHA;
 }
 
-Produto* buscarProduto(Estoque *estoque, int id)
+Produto *buscarProduto(Estoque *estoque, int id)
 {
     for (int i = 0; i < estoque->quantidade; i++)
         if (estoque->dados[i].id == id)
-            return &estoque->dados[i]; //retornando o endereço
-    
+            return &estoque->dados[i]; // retornando o endereço
+
     return NULL;
 }
 
 int alterarPreco(Estoque *estoque, int id, float novoPreco)
 {
-    Produto *produto = buscarProduto(estoque, id); //reuso de função
+    Produto *produto = buscarProduto(estoque, id); // reuso de função
 
     if (produto == NULL)
         return FALHA;
@@ -174,20 +181,23 @@ int salvarEstoque(Estoque *estoque)
     FILE *arquivo = fopen(ARQUIVO, "wb");
 
     if (arquivo == NULL)
+       return FALHA;
+    
+    if (fwrite(&estoque->quantidade, sizeof(int), 1, arquivo) != 1){
+        fclose(arquivo);
         return FALHA;
-
-    int resultado = SUCESSO;
-    if (fwrite(&estoque->quantidade, sizeof(int), 1, arquivo) != 1)
-        resultado = FALHA;
-
+    }
+    
     if (estoque->quantidade > 0)
-        if (fwrite(estoque->dados, sizeof(Produto), estoque->quantidade, arquivo) != estoque->quantidade)
-            resultado = FALHA;
+        if (fwrite(estoque->dados, sizeof(Produto), estoque->quantidade, arquivo) != estoque->quantidade){
+            fclose(arquivo);
+            return FALHA;
+        }
 
     if (fclose(arquivo) == EOF)
-        resultado = FALHA;
+        return FALHA;
 
-    return resultado;
+    return SUCESSO;
 }
 
 int main()
@@ -220,21 +230,24 @@ int main()
         printf("Opção: ");
         scanf("%d", &opcao);
 
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
 
-        switch (opcao) {
+        switch (opcao)
+        {
         case 1:
             listarProdutos(&estoque);
             break;
 
         case 2:
-        { //abri chaves porque tenho var local aqui dentro
+        { // abri chaves porque tenho var local aqui dentro
             Produto produto;
 
             printf("ID: ");
             scanf("%d", &produto.id);
 
-            while (getchar() != '\n');
+            while (getchar() != '\n')
+                ;
 
             printf("Nome: ");
             fgets(produto.nome, sizeof(produto.nome), stdin);
@@ -260,7 +273,7 @@ int main()
             break;
 
         case 4:
-        { //abri chaves porque tenho var local aqui dentro
+        { // abri chaves porque tenho var local aqui dentro
             int id;
             Produto produto;
 
@@ -276,13 +289,12 @@ int main()
             }
             else
                 printf("Produto não encontrado.\n");
-            
 
             break;
         }
 
         case 5:
-        { //abri chaves porque tenho var local aqui dentro
+        { // abri chaves porque tenho var local aqui dentro
             int id;
 
             printf("ID do produto: ");
@@ -299,13 +311,12 @@ int main()
             }
             else
                 printf("Produto não encontrado.\n");
-            
 
             break;
         }
 
         case 6:
-        { //abri chaves porque tenho var local aqui dentro
+        { // abri chaves porque tenho var local aqui dentro
             int id;
             float novoPreco;
 
@@ -324,7 +335,7 @@ int main()
         }
 
         case 7:
-        { //abri chaves porque tenho var local aqui dentro
+        { // abri chaves porque tenho var local aqui dentro
             float media = calcularMediaPrecos(&estoque);
             printf("Média de preços: R$ %.2f\n", media);
             break;
