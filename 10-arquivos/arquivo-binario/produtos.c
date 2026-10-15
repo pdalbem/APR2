@@ -79,7 +79,7 @@ int adicionarProduto(Estoque *estoque, Produto *produto)
     estoque->dados[estoque->quantidade] = *produto;
     estoque->quantidade++;
 
-    return 1;
+    return SUCESSO;
 }
 
 void listarProdutos(Estoque *estoque)
@@ -129,8 +129,7 @@ int main()
     int opcao;
 
     int resp = carregarEstoque(&estoque);
-    if (resp == FALHA)
-    {
+    if (resp == FALHA){
         printf("Erro ao carregar os produtos.\n");
         return 1;
     }
@@ -149,22 +148,20 @@ int main()
         printf("Opçãoo: ");
         scanf("%d", &opcao);
 
-        while (getchar() != '\n')
-            ;
+        while (getchar() != '\n');
 
-        switch (opcao)
-        {
+        switch (opcao) {
         case 1:
             listarProdutos(&estoque);
             break;
 
         case 2:
+        { //abri chaves porque tenho var local aqui dentro
             Produto produto;
             printf("ID: ");
             scanf("%d", &produto.id);
 
-            while (getchar() != '\n')
-                ;
+            while (getchar() != '\n');
 
             printf("Nome: ");
             fgets(produto.nome, sizeof(produto.nome), stdin);
@@ -179,7 +176,7 @@ int main()
                 printf("Erro ao adicionar produto.\n");
 
             break;
-
+        }
         case 3:
             if (salvarEstoque(&estoque) == SUCESSO)
                 printf("Produtos salvos com sucesso.\n");
